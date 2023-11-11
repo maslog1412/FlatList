@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import UserAvatar from 'react-native-user-avatar';
 
 const flatData = [
   {
@@ -113,7 +107,7 @@ const flatData = [
 
 const Item = ({ fullname, place }) => (
   <View style={styles.item}>
-    <Text style={styles.fullname}>{fullname}</Text>
+    <Text style={styles.fullname}><UserAvatar size={50} name={fullname}/>{fullname}</Text>
     <Text style={styles.place}>{place}</Text>
   </View>
 );
@@ -133,14 +127,17 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#fff',
+    marginLeft: 25,
+    marginTop: 250,
   },
   fullname: {
     fontSize: 24,
     fontWeight: 'bold',
   },
   place: {
-    fontSize: 18,
+    fontSize: 16,
+    marginLeft: 52,
   },
 });
 
